@@ -2,8 +2,8 @@
 # Add one domain per line (without http:// or https://)
 # Lines starting with # are comments and will be ignored
 # These are the Malaysian news websites to search for WTE news
+# thestar.com.my
 
-thestar.com.my
 theedgemalaysia.com
 bernama.com
 nst.com.my
