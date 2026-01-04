@@ -4,12 +4,12 @@
 # Keywords are case-insensitive and will be searched across Malaysian news sources
 
 # Waste to Energy related terms
-Waste to Energy
+"Waste to Energy"
 WTE
 Incinerator
 Biogas
 Biomass
-Anaerobic Digester
+"Anaerobic Digester"
 AD
 
 # Company and Organization names
