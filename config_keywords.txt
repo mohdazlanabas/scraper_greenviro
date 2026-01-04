@@ -1,0 +1,19 @@
+# Keywords Configuration for WTE News Scraper
+# Add one keyword or phrase per line
+# Lines starting with # are comments and will be ignored
+# Keywords are case-insensitive and will be searched across Malaysian news sources
+
+# Waste to Energy related terms
+Waste to Energy
+WTE
+Incinerator
+Biogas
+Biomass
+Anaerobic Digester
+AD
+
+# Company and Organization names
+Greenviro
+KPKT
+SWCorp
+JPSPN

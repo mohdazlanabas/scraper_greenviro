@@ -1,0 +1,15 @@
+# Email Recipients Configuration
+# Add one email address per line
+# Lines starting with # are comments and will be ignored
+#
+# INSTRUCTIONS:
+# 1. Copy this file to config_emails.txt
+# 2. Add your recipient email addresses below
+# 3. Save the file
+#
+# Example:
+# john@net1io.com
+# jane@greenviro.com
+# management@company.com
+
+# Add your recipient email addresses below:

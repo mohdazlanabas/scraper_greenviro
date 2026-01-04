@@ -1,0 +1,17 @@
+# News Domains Configuration
+# Add one domain per line (without http:// or https://)
+# Lines starting with # are comments and will be ignored
+# These are the Malaysian news websites to search for WTE news
+
+thestar.com.my
+theedgemalaysia.com
+bernama.com
+nst.com.my
+malaymail.com
+freemalaysiatoday.com
+businesstoday.com.my
+themalaysianreserve.com
+thesundaily.my
+focusmalaysia.my
+theborneopost.com
+dailyexpress.com.my
