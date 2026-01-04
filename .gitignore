@@ -19,8 +19,8 @@ tmp/
 private/
 
 # WTE Scraper - Config files with sensitive data
-config_emails.txt
-config_credentials.txt
+config_files/config_emails.txt
+config_files/config_credentials.txt
 output.txt
 
 # Machine Learning / PyTorch

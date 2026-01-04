@@ -23,10 +23,10 @@ def load_config_file(filename):
     return config_items
 
 def load_credentials():
-    """Load Gmail credentials from config_credentials.txt file."""
+    """Load Gmail credentials from config_files/config_credentials.txt file."""
     credentials = {}
     try:
-        with open('config_credentials.txt', 'r') as f:
+        with open('config_files/config_credentials.txt', 'r') as f:
             for line in f:
                 line = line.strip()
                 # Skip empty lines and comments
@@ -34,13 +34,13 @@ def load_credentials():
                     key, value = line.split('=', 1)
                     credentials[key.strip()] = value.strip()
     except FileNotFoundError:
-        print("Warning: config_credentials.txt not found. Will use environment variables.")
+        print("Warning: config_files/config_credentials.txt not found. Will use environment variables.")
     return credentials
 
 # --- LOAD SETTINGS FROM CONFIG FILES ---
-KEYWORDS = load_config_file('config_keywords.txt')
-DOMAINS = load_config_file('config_domains.txt')
-EMAIL_RECIPIENTS = load_config_file('config_emails.txt')
+KEYWORDS = load_config_file('config_files/config_keywords.txt')
+DOMAINS = load_config_file('config_files/config_domains.txt')
+EMAIL_RECIPIENTS = load_config_file('config_files/config_emails.txt')
 
 def fetch_wte_news():
     # Build a powerful search query across all domains
@@ -81,7 +81,7 @@ def send_email(articles):
 
     if not sender or not password:
         print("Error: Gmail credentials not configured.")
-        print("Please edit config_credentials.txt or set EMAIL_SENDER and EMAIL_PASSWORD environment variables.")
+        print("Please edit config_files/config_credentials.txt or set EMAIL_SENDER and EMAIL_PASSWORD environment variables.")
         return
 
     # Use EMAIL_RECIPIENTS from config file, or fallback to environment variable
@@ -94,7 +94,7 @@ def send_email(articles):
             receiver_list = [email.strip() for email in receiver_raw.split(",")]
 
     if not receiver_list:
-        print("Error: No email recipients configured. Please add emails to config_emails.txt")
+        print("Error: No email recipients configured. Please add emails to config_files/config_emails.txt")
         return
     
     # Custom Header Format requested
