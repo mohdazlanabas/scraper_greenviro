@@ -6,7 +6,7 @@
 
 Open and edit this file:
 ```
-config_credentials.txt
+config_files/config_credentials.txt
 ```
 
 Change these two lines:
@@ -19,7 +19,7 @@ EMAIL_PASSWORD=your-16-char-app-password   ← Put your App Password here
 1. Go to: https://myaccount.google.com/apppasswords
 2. Create an App Password for "Mail"
 3. Copy the 16-character password
-4. Paste it in config_credentials.txt
+4. Paste it in config_files/config_credentials.txt
 
 ---
 
@@ -48,19 +48,21 @@ This will send the email to: `azlan@net1io.com`
 
 ## That's It!
 
-You only need to edit `config_credentials.txt` once.
+You only need to edit `config_files/config_credentials.txt` once.
 After that, just run `python3 scrapper.py` anytime to send the latest WTE news.
 
 ---
 
 ## Configuration Files You Can Edit
 
+All config files are in the `config_files/` folder:
+
 | File | What It Does |
 |------|--------------|
-| **config_credentials.txt** | Your Gmail login info |
-| **config_emails.txt** | Who receives the email |
-| **config_keywords.txt** | What news topics to search for |
-| **config_domains.txt** | Which news websites to search |
+| **config_files/config_credentials.txt** | Your Gmail login info |
+| **config_files/config_emails.txt** | Who receives the email |
+| **config_files/config_keywords.txt** | What news topics to search for |
+| **config_files/config_domains.txt** | Which news websites to search |
 
 All files support comments starting with `#`
 
@@ -73,10 +75,10 @@ All files support comments starting with `#`
 - Make sure 2FA is enabled on your Google account
 
 **"No email recipients configured"**
-- Check `config_emails.txt` has valid email (no # at start)
+- Check `config_files/config_emails.txt` has valid email (no # at start)
 
 **"Credentials not configured"**
-- Edit `config_credentials.txt` with your real Gmail details
+- Edit `config_files/config_credentials.txt` with your real Gmail details
 - Make sure format is: `KEY=VALUE` (no spaces around =)
 
 ---
