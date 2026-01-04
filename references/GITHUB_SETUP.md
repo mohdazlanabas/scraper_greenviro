@@ -58,20 +58,20 @@ Add these 3 secrets:
 | `EMAIL_RECEIVER` | `azlan@net1io.com` | Fallback recipient (optional) |
 
 **Important:**
-- Use your actual Gmail App Password from `config_credentials.txt`
+- Use your actual Gmail App Password from `config_files/config_credentials.txt`
 - Keep the spaces in the password - GitHub handles them correctly
 
 ---
 
-### Step 5: Update config_emails.txt on GitHub
+### Step 5: Update config_files/config_emails.txt on GitHub
 
-Since `config_emails.txt` is git-ignored (not pushed to GitHub), you need to create it on GitHub Actions:
+Since `config_files/config_emails.txt` is git-ignored (not pushed to GitHub), you need to create it on GitHub Actions:
 
 **Option A: Use GitHub Secrets (Recommended)**
 The workflow already uses `EMAIL_RECEIVER` as fallback, so it will work.
 
 **Option B: Create the file in GitHub**
-1. In your repo, create a new file: `config_emails.txt`
+1. In your repo, create a new file: `config_files/config_emails.txt`
 2. Add: `azlan@net1io.com`
 3. Commit directly to main branch
 
@@ -131,14 +131,14 @@ When the workflow runs:
 ## Important Notes
 
 ### Files NOT Pushed to GitHub (git-ignored):
-- `config_emails.txt` - Email recipients (use GitHub Secret instead)
-- `config_credentials.txt` - Gmail credentials (use GitHub Secrets instead)
+- `config_files/config_emails.txt` - Email recipients (use GitHub Secret instead)
+- `config_files/config_credentials.txt` - Gmail credentials (use GitHub Secrets instead)
 - `output.txt` - Test output file
 
 ### Files Pushed to GitHub:
 - `scrapper.py` - Main script
-- `config_keywords.txt` - Search keywords
-- `config_domains.txt` - News domains
+- `config_files/config_keywords.txt` - Search keywords
+- `config_files/config_domains.txt` - News domains
 - `.github/workflows/scrapper.yml` - GitHub Actions workflow
 - All documentation files
 
@@ -153,7 +153,7 @@ When the workflow runs:
 
 ### "No email recipients configured"
 - Set `EMAIL_RECEIVER` secret in GitHub
-- Or create `config_emails.txt` in the GitHub repository
+- Or create `config_files/config_emails.txt` in the GitHub repository
 
 ### Workflow doesn't run
 - Check Actions tab is enabled in repository settings

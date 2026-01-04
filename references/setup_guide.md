@@ -4,11 +4,11 @@
 
 ### 1. Configure Email Recipients
 ```bash
-cp config_emails.txt.example config_emails.txt
-# Edit config_emails.txt and add your email addresses (one per line)
+cp config_files/config_emails.txt.example config_files/config_emails.txt
+# Edit config_files/config_emails.txt and add your email addresses (one per line)
 ```
 
-Example `config_emails.txt`:
+Example `config_files/config_emails.txt`:
 ```
 manager@net1io.com
 team@greenviro.com
@@ -16,7 +16,7 @@ ceo@company.com
 ```
 
 ### 2. Customize Keywords (Optional)
-Edit `config_keywords.txt` to add or remove search keywords:
+Edit `config_files/config_keywords.txt` to add or remove search keywords:
 ```
 Waste to Energy
 WTE
@@ -25,7 +25,7 @@ Your Custom Keywords Here
 ```
 
 ### 3. Customize News Sources (Optional)
-Edit `config_domains.txt` to add or remove Malaysian news domains:
+Edit `config_files/config_domains.txt` to add or remove Malaysian news domains:
 ```
 thestar.com.my
 theedgemalaysia.com
@@ -67,7 +67,7 @@ Go to: **Your Repository → Settings → Secrets and variables → Actions**
 Add these secrets:
 - **EMAIL_SENDER**: Your Gmail address (e.g., `yourname@gmail.com`)
 - **EMAIL_PASSWORD**: Your Gmail App Password (16 characters, see below)
-- **EMAIL_RECEIVER**: Optional fallback (if config_emails.txt is empty)
+- **EMAIL_RECEIVER**: Optional fallback (if config_files/config_emails.txt is empty)
 
 #### Step 3: Get Gmail App Password
 1. Enable 2-Factor Authentication: https://myaccount.google.com/security
@@ -97,26 +97,26 @@ Use https://crontab.guru to generate custom schedules.
 
 | File | Purpose | Git Tracked |
 |------|---------|-------------|
-| `config_keywords.txt` | Search keywords | Yes ✓ |
-| `config_domains.txt` | News websites | Yes ✓ |
-| `config_emails.txt` | Email recipients (sensitive) | No ✗ |
-| `config_emails.txt.example` | Template for emails | Yes ✓ |
+| `config_files/config_keywords.txt` | Search keywords | Yes ✓ |
+| `config_files/config_domains.txt` | News websites | Yes ✓ |
+| `config_files/config_emails.txt` | Email recipients (sensitive) | No ✗ |
+| `config_files/config_emails.txt.example` | Template for emails | Yes ✓ |
 
 ## Troubleshooting
 
 ### Email Not Sending
 - Verify Gmail App Password (not regular password)
 - Check 2FA is enabled on Google Account
-- Verify `config_emails.txt` has valid email addresses
+- Verify `config_files/config_emails.txt` has valid email addresses
 
 ### No News Found
-- Check keywords in `config_keywords.txt` are relevant
-- Verify domains in `config_domains.txt` are active
+- Check keywords in `config_files/config_keywords.txt` are relevant
+- Verify domains in `config_files/config_domains.txt` are active
 - Try broader keywords
 
 ### GitHub Actions Failing
 - Check all 3 secrets are set correctly
-- Verify `config_emails.txt` exists and has valid emails
+- Verify `config_files/config_emails.txt` exists and has valid emails
 - Check workflow logs in Actions tab
 
 ## File Structure
@@ -127,10 +127,10 @@ scrapper_greenviro/
 │       └── scrapper.yml           # Automation workflow
 ├── scrapper.py                    # Main Python script
 ├── requirements.txt               # Dependencies
-├── config_keywords.txt            # Search keywords (edit freely)
-├── config_domains.txt             # News domains (edit freely)
-├── config_emails.txt              # Email recipients (git-ignored)
-├── config_emails.txt.example      # Email template
+├── config_files/config_keywords.txt            # Search keywords (edit freely)
+├── config_files/config_domains.txt             # News domains (edit freely)
+├── config_files/config_emails.txt              # Email recipients (git-ignored)
+├── config_files/config_emails.txt.example      # Email template
 ├── readme.md                      # Project overview
 └── SETUP_GUIDE.md                 # This file
 ```
@@ -144,8 +144,8 @@ For issues or questions:
 
 ## Next Steps
 
-1. ✓ Configure `config_emails.txt` with your recipients
-2. ✓ Customize keywords in `config_keywords.txt` if needed
+1. ✓ Configure `config_files/config_emails.txt` with your recipients
+2. ✓ Customize keywords in `config_files/config_keywords.txt` if needed
 3. ✓ Test locally with `python scrapper.py`
 4. ✓ Push to GitHub and configure secrets
 5. ✓ Test with manual workflow trigger
