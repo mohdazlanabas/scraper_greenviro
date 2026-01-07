@@ -74,8 +74,8 @@ def fetch_wte_news():
                 # For simplicity, we'll skip articles with unparseable dates
                 continue
 
-            # Filter articles from today and yesterday
-            if pub_date >= yesterday:
+            # Filter articles from today and yesterday only
+            if yesterday <= pub_date <= today:
                 articles.append(f"<li><b>{title}</b><br><a href='{link}'>{link}</a><br><small>{pub_date_str}</small></li>")
                 articles_plain.append({"title": title, "link": link, "date": pub_date_str})
         return articles, articles_plain
