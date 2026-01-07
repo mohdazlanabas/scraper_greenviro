@@ -5,7 +5,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import os
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 
 # --- HELPER FUNCTIONS ---
 def load_config_file(filename):
@@ -58,12 +58,26 @@ def fetch_wte_news():
 
         articles = []
         articles_plain = []  # For plain text output
+        today = datetime.now().date()
+        yesterday = today - timedelta(days=1)
+
         for item in soup.find_all('item')[:25]: # Limit to top 25 results
             title = item.title.text
             link = item.link.text
-            pub_date = item.pubDate.text
-            articles.append(f"<li><b>{title}</b><br><a href='{link}'>{link}</a><br><small>{pub_date}</small></li>")
-            articles_plain.append({"title": title, "link": link, "date": pub_date})
+            pub_date_str = item.pubDate.text
+            
+            # Parse the publication date
+            try:
+                pub_date = datetime.strptime(pub_date_str, "%a, %d %b %Y %H:%M:%S %Z").date()
+            except ValueError:
+                # Handle cases where the date format might be different
+                # For simplicity, we'll skip articles with unparseable dates
+                continue
+
+            # Filter articles from today and yesterday
+            if pub_date >= yesterday:
+                articles.append(f"<li><b>{title}</b><br><a href='{link}'>{link}</a><br><small>{pub_date_str}</small></li>")
+                articles_plain.append({"title": title, "link": link, "date": pub_date_str})
         return articles, articles_plain
     except Exception as e:
         print(f"Error fetching news: {e}")
@@ -133,7 +147,7 @@ def save_test_output(articles_plain):
     """Save test results to output.txt file"""
     formatted_date = datetime.now().strftime("%A, %d %B %Y at %I:%M %p")
 
-    with open('output.txt', 'w') as f:
+    with open('output.txt', 'a') as f:
         f.write("=" * 80 + "\n")
         f.write("WTE MALAYSIA NEWS SCRAPER - TEST OUTPUT\n")
         f.write(f"Generated: {formatted_date}\n")
